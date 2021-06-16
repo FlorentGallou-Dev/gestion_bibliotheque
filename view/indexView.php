@@ -8,24 +8,31 @@
     <div class="container my-5">
         <table class="table my-5">
             <thead class="table-dark">
-                <tr>
+                <tr class="text-center">
+                    <th scope="col">Identifiant</th>
                     <th scope="col">Titre</th>
                     <th scope="col">Auteur</th>
                     <th scope="col">Date d'édition</th>
                     <th scope="col">Éditeur</th>
                     <th scope="col">Catégorie</th>
                     <th scope="col">Disponible</th>
+                    <th scope="col">Date d'emprunt</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">Titre 1</th>
-                    <td>Auteur 1</td>
-                    <td>24/12/2021</td>
-                    <td>Éditeur 1</td>
-                    <td>Catégorie 1</td>
-                    <td>oui</td>
-                </tr>
+                <?php foreach($books as $book): ?>
+                    <tr>
+                        <th scope="row"><?php echo $book["bk_id"] ?></th>
+                        <td><?php echo $book["bk_title"] ?></td>
+                        <td><?php echo $book["bk_writer"] ?></td>
+                        <td><?php echo $book["bk_summary"] ?></td>
+                        <td><?php echo $book["bk_editor"] ?></td>
+                        <td><?php echo $book["bk_edition_date"] ?></td>
+                        <td><?php echo $book["bk_category"] ?></td>
+                        <td><?php echo $book["bk_borrowed"] ?></td>
+                        <td><?php echo $book["bk_borrowed_date"] ?></td>
+                    </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
     </div>

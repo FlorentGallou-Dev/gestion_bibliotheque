@@ -1,6 +1,10 @@
 <?php
 
+  require "dataBase.php"; 
+
 class userManager {
+
+  private PDO $bdd;
 
   // Récupère tous les utilisateurs
   public function getUsers() {
@@ -16,4 +20,10 @@ class userManager {
   public function getUser() {
 
   }
+
+  function __construct()
+  {
+      $this->bdd = DataBase::getBdd();
+  }
+
 }
