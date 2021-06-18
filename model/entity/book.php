@@ -1,4 +1,5 @@
 <?php
+
 // Classe représetant les livres stockés en base de données
 class Book
 {
@@ -84,9 +85,12 @@ class Book
     {
         $this->bk_borrowed = $borrowed;
     }
-    public function getBk_borrowed(): bool
+    public function getBk_borrowed(): string
     {
-        return $this->bk_borrowed;
+        if($this->bk_borrowed) {
+            return "non";
+        }
+        return "oui";
     }
 
     public function setBk_borrowed_date(string $borrowed_date)
@@ -98,7 +102,7 @@ class Book
         return $this->bk_borrowed_date;
     }
 
-    public function hydrateBook(?array $datas = null)
+    private function hydrateBook(?array $datas = null)
     {
         if ($datas) {
             foreach ($datas as $key => $value) {

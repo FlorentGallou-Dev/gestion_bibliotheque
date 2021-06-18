@@ -20,8 +20,14 @@ class bookModel {
 
 
   // Récupère un livre
-  public function getBook() {
-
+  public function getBook(int $bookId) {
+    $query = $this->bdd->prepare(
+      "SELECT bk_title, bk_writer, bk_summary, bk_editor, bk_edition_date, bk_category, bk_borrowed, bk_borrowed_date
+      FROM book
+      WHERE bk_id = $bookId"
+    );
+    $query->execute();
+    return $query->fetch(PDO::FETCH_ASSOC);
   }
 
   // Ajoute un nouveau livre
