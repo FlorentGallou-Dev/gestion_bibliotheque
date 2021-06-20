@@ -1,6 +1,9 @@
 <?php
 
-require "model/bookmodel.php";
-// Controlleur qui gérer l'affichage de tous les livres
+    require "model/entity/book.php";
+    require "model/bookmodel.php";
 
-require "view/indexView.php";
+    $bookModel = new bookModel();
+    $books = $bookModel->getBooks(); // get the book list from database
+
+    require "view/indexView.php";

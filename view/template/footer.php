@@ -1,4 +1,4 @@
-        <footer class="bg-light">
+        <footer class="bg-dark text-light">
             <div class="row mx-auto p-3">
                 <article class="col-12 mb-3">
                     <h6 class="mb-5">Gestion de Bibiliothèque - Florent GALLOU - 2021</h6>
