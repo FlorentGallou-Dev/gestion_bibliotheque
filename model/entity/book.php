@@ -11,7 +11,8 @@ class Book
     protected string $bk_edition_date;
     protected string $bk_category;
     protected bool $bk_borrowed;
-    protected string $bk_borrowed_date;
+    protected ?string $bk_borrowed_date;
+    protected ?int $bw_id;
 
     public function __construct(?array $datas = null)
     {
@@ -95,17 +96,32 @@ class Book
 
     public function setBk_borrowed_date(string $borrowed_date)
     {
-        $this->bk_borrowed_date = $borrowed_date;
+        if(!is_null($borrowed_date))
+        {
+            $this->bk_borrowed_date = $borrowed_date;
+        }
     }
-    public function getBk_borrowed_date(): string
+    public function getBk_borrowed_date(): ?string
     {
         return $this->bk_borrowed_date;
     }
 
-    private function hydrateBook(?array $datas = null)
+    public function setBw_id(int $id)
+    {
+        $this->bw_id = $id;
+    }
+    public function getBw_id()
+    {
+        return $this->bw_id;
+    }
+
+    private function hydrateBook(?array $datas=null)
     {
         if ($datas) {
             foreach ($datas as $key => $value) {
+                if(!is_null($value)) {
+                    $value = htmlspecialchars($value);
+                }
                 $setter = "set" . ucfirst($key);
                 if (method_exists($this, $setter)) {
                     $this->$setter($value);

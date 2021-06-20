@@ -22,19 +22,14 @@
             <tbody>
                 <?php foreach($books as $book): ?>
                     <tr class="align-middle">
-                        <th scope="row" class="text-center"><?php echo $book["bk_id"] ?></th>
-                        <td><a href="singleBook.php?book=<?php echo $book["bk_id"] ?>"><?php echo $book["bk_title"] ?></a></td>
-                        <td><?php echo $book["bk_writer"] ?></td>
-                        <td><?php echo $book["bk_editor"] ?></td>
-                        <td class="text-center"><?php echo $book["bk_edition_date"] ?></td>
-                        <td class="text-center"><?php echo $book["bk_category"] ?></td>
-                        <td class="text-center"><?php
-                            if($book["bk_borrowed"]) {
-                                echo "non";
-                            }
-                            echo "oui";
-                            ?></td>
-                        <td class="text-center"><?php echo $book["bk_borrowed_date"] ?></td>
+                        <th scope="row" class="text-center"><?php echo $book->getBk_id() ?></th>
+                        <td><a href="singleBook.php?book=<?php echo $book->getBk_id() ?>"><?php echo $book->getBk_title() ?></a></td>
+                        <td><?php echo $book->getBk_writer() ?></td>
+                        <td><?php echo $book->getBk_editor() ?></td>
+                        <td class="text-center"><?php echo $book->getBk_edition_date() ?></td>
+                        <td class="text-center"><?php echo $book->getBk_category() ?></td>
+                        <td class="text-center"><?php echo $book->getBk_borrowed() ?></td>
+                        <td class="text-center"><?php echo $book->getBk_borrowed_date() ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

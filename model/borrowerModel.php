@@ -2,7 +2,7 @@
 
   require "dataBase.php"; 
 
-class borrowerModel {
+class BorrowerModel {
 
   private PDO $bdd;
 
@@ -13,7 +13,9 @@ class borrowerModel {
       FROM borrower"
     );
     $query->execute();
-    return $query->fetchAll(PDO::FETCH_ASSOC);
+    $query->setFetchMode(PDO::FETCH_CLASS, 'Borrower');
+    $result = $query->fetchAll();
+    return $result;
   }
 
   // Récupère un utilisateur par son id

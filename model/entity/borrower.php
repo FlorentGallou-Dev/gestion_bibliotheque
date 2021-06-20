@@ -1,7 +1,7 @@
 <?php
 
 // Classe représetant les utilisateurs stockés en base de données
-class User {
+class Borrower {
     protected int $bw_id;
     protected string $bw_firstname;
     protected string $bw_lastname;
@@ -75,6 +75,9 @@ class User {
     {
         if ($datas) {
             foreach ($datas as $key => $value) {
+                if(!is_null($value)) {
+                    $value = htmlspecialchars($value);
+                }
                 $setter = "set" . ucfirst($key);
                 if (method_exists($this, $setter)) {
                     $this->$setter($value);

@@ -20,19 +20,12 @@
             <tbody>
                 <?php foreach($borrowers as $borrower): ?>
                     <tr class="align-middle">
-                        <th scope="row" class="text-center"><?php echo $borrower["bw_id"] ?></th>
-                        <td><?php echo $borrower["bw_firstname"] ?></td>
-                        <td><?php echo $borrower["bw_lastname"] ?></td>
-                        <!-- <td><?php //echo $borrower["bw_birthdate"] ?></td> -->
-                        <td class="text-center"><?php
-
-                            $today = date("Y-m-d");
-                            $diff = date_diff(date_create($borrower["bw_birthdate"]), date_create($today));
-                            echo $diff->format('%y') . " ans";
-
-                        ?></td>
-                        <td><?php echo $borrower["bw_address"] ?></td>
-                        <td class="text-center"><?php echo $borrower["bw_phone"] ?></td>
+                        <th scope="row" class="text-center"><?php echo $borrower->getBw_id() ?></th>
+                        <td><?php echo $borrower->getBw_firstname() ?></td>
+                        <td><?php echo $borrower->getBw_lastname() ?></td>
+                        <td class="text-center"><?php echo $borrower->getBw_birthdate() ?></td>
+                        <td><?php echo $borrower->getBw_address() ?></td>
+                        <td class="text-center"><?php echo $borrower->getBw_phone() ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

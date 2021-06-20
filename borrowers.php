@@ -4,7 +4,7 @@
     require "model/entity/borrower.php";
     require "model/borrowerModel.php";
 
-    $borrowerModel = new borrowerModel;
+    $borrowerModel = new BorrowerModel();
     $borrowers = $borrowerModel->getBorrowers(); // get the book list from database
 
     require "view/borrowersView.php";
